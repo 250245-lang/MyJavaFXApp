@@ -1,16 +1,10 @@
 package myapp;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class DiagonalLine extends Application {
@@ -20,12 +14,10 @@ public class DiagonalLine extends Application {
         line.setStroke(Color.GREEN);
         line.setStrokeWidth(3);
 
-        Pane pane = new Pane(line);
+        Pane root = new Pane(line);
 
-        StackPane root = new StackPane(pane);
-
-        line.endXProperty().bind(pane.widthProperty());
-        line.endYProperty().bind(pane.heightProperty());
+        line.endXProperty().bind(root.widthProperty());
+        line.endYProperty().bind(root.heightProperty());
 
         stage.setTitle("DiagonalLine");
         stage.setScene(new Scene(root, 400, 300));
